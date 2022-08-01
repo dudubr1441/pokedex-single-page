@@ -2,15 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/html files/css files/style.css">
+    <link rel="shortcut icon" href="/images files/pokeball-icon.ico" type="image/x-icon">
+    <script type="module" src="/javascriptFiles/managerContent.js" defer></script>
     <title>Pokedex</title>
 </head>
 <body>
     <div id="root">
         <div id="content-pokemon">
-            <div id="screen"></div>
+            <div id="pokemonButtonsTop" class="pokemonButtons">
+                <div id="pokemonButtonsTopContent">
+                    <span class="pokedexCircle circleLow"></span>
+                    <span class="pokedexCircle circleLow"></span>
+                </div>
+            </div>
+            <div id="screenDiv"></div>
+            <footer id="pokemonButtonsLow" class="pokemonButtons"></footer>
         </div>
     </div>
 </body>
