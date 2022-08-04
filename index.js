@@ -3,6 +3,7 @@ const { dirname } = require('path');
 const path = require('path');
 const app = express();
 const port = 3000;
+const indexHTML = __dirname+'/public/html files/index.html';
 const pokedex = require('./pokedex.json').map((pokemon)=>{
     return {name:pokemon.name.english
             ,type:pokemon.type
@@ -15,9 +16,15 @@ const pokedex = require('./pokedex.json').map((pokemon)=>{
 app.use(express.static('public'))
 
 app.get('/',function(req,res){
-    res.sendFile(__dirname+'/public/html files/index.html')
+    res.sendFile(indexHTML)
 })
-
+app.get('/home',function(req,res){
+    res.sendFile(indexHTML)
+})
+app.get('/pokedex',function (req,res) {
+    const page = req.query['pg'];
+    res.sendFile(indexHTML);
+})
 app.get('/allPokemons',function(req,res){
     res.json(pokedex);
 })

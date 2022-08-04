@@ -1,5 +1,5 @@
-import {Component} from '/javascriptFiles/components.js';
-import {managerContent} from '/javascriptFiles/manager.js';
+import {Component} from '/javascriptFiles/components/components.js';
+import {managerContent} from '/javascriptFiles/components/manager.js';
 const home = new Component('div');
 
 // title image
@@ -31,4 +31,4 @@ home.appendChild(divTitlePokemon.Element);
 home.appendChild(groupStart.Element);
 home.AddAtributte('id','screen');
 home.AddClass('start');
-export const homeStart = {name:'home', tag:home.Element}
+export const homeStart = home.Element;
