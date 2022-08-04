@@ -1,5 +1,6 @@
 import {Component} from '/javascriptFiles/components/components.js';
 import {managerContent} from '/javascriptFiles/components/manager.js';
+import { screens } from '/javascriptFiles/screens/screens.js';
 const home = new Component('div');
 
 // title image
@@ -20,7 +21,7 @@ const pathImageStart = '/images files/start/pokemonButtonStart.png';
 const imageStart = Component.createImage(pathImageStart,80,80);
 imageStart.AddAtributte('id','startImage');
 imageStart.addEvent('click',function(){
-    managerContent.nextPage(document.createElement('div'))
+    managerContent.nextPage(screens.pokedex)
 });
 
 //append elements
@@ -31,4 +32,4 @@ home.appendChild(divTitlePokemon.Element);
 home.appendChild(groupStart.Element);
 home.AddAtributte('id','screen');
 home.AddClass('start');
-export const homeStart = home.Element;
+export const homeStart = {name:'home',tag:home.Element,url:'/home'}

@@ -1,6 +1,5 @@
-import {managerContent} from '/javascriptFiles/components/manager.js';
-import {homeStart as home} from '/javascriptFiles/screens/home.js';
-import { pokedex } from '/javascriptFiles/screens/pokedex.js';
+import {managerContent as manager} from '/javascriptFiles/components/manager.js';
+import { screens } from '/javascriptFiles/screens/screens.js';
 function urlIdentifier(){
     const url = window.location.pathname.toString();
     const Adresses = url.split('/');
@@ -9,16 +8,16 @@ function urlIdentifier(){
 }
 switch (urlIdentifier()[0]) {
     case '':
-    managerContent.nextPage(home)    
+        manager.nextPage(screens.home)    
         break;
     case 'home':
-    managerContent.nextPage(home)
+        manager.nextPage(screens.home)
         break;
     case 'pokedex':
-        console.log('teste');
-    managerContent.nextPage(pokedex);
+        manager.nextPage(screens.pokedex);
         break;
     default:
     alert('erro ao carregar')
         break;
-}
+} 
+console.log(manager.GetLastPage())

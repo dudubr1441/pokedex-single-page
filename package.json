@@ -4,7 +4,7 @@
   "description": "pokedex single-page",
   "main": "index.js",
   "scripts": {
-    "start":"nodemon",
+    "start": "nodemon",
     "test": ""
   },
   "repository": {
