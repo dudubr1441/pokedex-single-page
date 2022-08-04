@@ -1,5 +1,6 @@
 import {managerContent as manager} from '/javascriptFiles/components/manager.js';
 import { screens } from '/javascriptFiles/screens/screens.js';
+window.history.back = manager.backPage; 
 function urlIdentifier(){
     const url = window.location.pathname.toString();
     const Adresses = url.split('/');
@@ -20,4 +21,3 @@ switch (urlIdentifier()[0]) {
     alert('erro ao carregar')
         break;
 } 
-console.log(manager.GetLastPage())
