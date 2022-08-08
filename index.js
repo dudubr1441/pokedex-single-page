@@ -4,15 +4,9 @@ const path = require('path');
 const app = express();
 const port = 3000;
 const indexHTML = __dirname+'/public/html files/index.html';
-const pokedex = require('./pokedex.json').map((pokemon)=>{
-    return {name:pokemon.name.english
-            ,type:pokemon.type
-            ,abilities:pokemon.profile.ability
-            ,bigImage:pokemon.image.hires
-            ,mediumImage:pokemon.image.thumbnail
-            ,smallImage:pokemon.image.sprite
-            ,species:pokemon.species.replace('Pokémon','').trim()}
-});
+const pokedex = require('./private/pokedex/pokedex.js');
+const pokedexPages = require('./private/pokedex/pokedexPages.js');
+
 app.use(express.static('public'))
 
 app.get('/',function(req,res){
@@ -24,6 +18,14 @@ app.get('/home',function(req,res){
 app.get('/pokedex',function (req,res) {
     const page = req.query['pg'];
     res.sendFile(indexHTML);
+})
+app.get('/pokedex/:pg',function (req,res) {
+    try {
+        const page = parseInt(req.params.pg)-1;
+        res.json(pokedexPages[page]);
+    } catch (error) {
+        res.sendStatus(500)
+    }
 })
 app.get('/allPokemons',function(req,res){
     res.json(pokedex);

@@ -25,8 +25,11 @@ export class Component{
     addEvent(type,callback){
         this.elementHTML.addEventListener(type,callback);
     }
-    static createDiv(){
+    static createDiv(id) {
         const div = new Component();
+        if (id) {
+            div.AddAtributte('id',id.toString())
+        }
         return div;
     }
     static createLink(link){

@@ -102,3 +102,38 @@
     background-color: black;
     border-radius: 50%;
 }
+.pokedex{
+    background-color:#ffffff;
+    /*
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    width: 900px;
+    flex-wrap: wrap;*/
+}
+#pokedexList {
+    display: flex;
+    background-color:aqua;
+    margin:0 auto;
+    width: 900px;
+    flex-wrap: wrap;
+}
+.pokemonPokedex {
+    width: 200px;
+    height: 160px;
+    background-color: #000000;
+    border: 5px solid green;
+    margin-left: 20px;
+    margin-top:5px;
+}
+#titlePokedex {
+    display:block;
+    text-align:center;
+    font-family: pokemonFont;
+    font-size: 35px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+}
+/*.pokemonPokedex:not(:last-child) {
+    margin-left: 20px;
+}*/
