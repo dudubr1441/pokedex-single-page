@@ -5,6 +5,7 @@ const TitlePokedex = Component.createText('pokedex');
 TitlePokedex.AddAtributte('id', 'titlePokedex');
 
 // pokemon list
+
 const DivPokemonList = Component.createDiv('pokedexList');
 const pokemonPokedex = Component.createDiv();
 pokemonPokedex.AddClass('pokemonPokedex');

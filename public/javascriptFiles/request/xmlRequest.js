@@ -4,19 +4,18 @@ function objectConverToarams(object = {}) {
     let stringFinal = '';
     for (let index = 0; index < arrayKeys.length; index++) {
         if (index !=0) {
-            stringFinal+='&'
+            stringFinal+='&';
         }
-        stringFinal+=`${arrayKeys[index]}=${arrayValue[index]}`
+        stringFinal+=`${arrayKeys[index]}=${arrayValue[index]}`;
     }
     return stringFinal;
 }
-function ajax(config) {
+export function ajax(config) {
     config.method = config.method.toLowerCase();
     xhr = new XMLHttpRequest();
     if(config.async === undefined){
-       config.async = false; 
+       config.async = false;
     }
-    
     xhr.open(config.method,config.url,config.async);
     xhr.onload = function(){
         if(xhr.status = 200){
@@ -26,7 +25,7 @@ function ajax(config) {
         }
     }
     if(config.method!='get'){
-        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
         xhr.send(objectConvert(config.data));
     }else{
         xhr.send();
@@ -59,5 +58,5 @@ const objectTest = {
         throw `error status: ${status}`;
     }
 }
-console.log(ajax(objectTest))
+console.log(ajax(objectTest));
 
