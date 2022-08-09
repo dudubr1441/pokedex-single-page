@@ -1,5 +1,5 @@
-const params = window.location.search.replace('?',' ').trim();
-function paramsToObject(params) {
+export function params() {
+    const params = window.location.search.replace('?',' ').trim();
     const paramsArray = params.split('&');
     function keysArray(paramsArray) {
         function keysParams(param) {
@@ -40,8 +40,6 @@ function paramsToObject(params) {
     paramsToJson+=(`"${keysArrays[keysArrays.length-1]}":"${valuesArrays[keysArrays.length-1]}"}`);
     return JSON.parse(paramsToJson);
 }
-export const objectParam = paramsToObject(params)
-
 //console.log(JSON.parse(paramsToJson(params)))
 // let paramsObject = '{';
 // for (let index = 0; index < paramsArray.length; index++) {

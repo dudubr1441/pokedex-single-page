@@ -47,16 +47,3 @@ export function ajax(config) {
 // error = status == !(200)
 // data = params; ex: 'name=robert&age=28'
 
-const objectTest = {
-    method:'get',
-    url:'/pokedex/2',
-    async:false,
-    success(text){
-        console.log(text)
-    },
-    error(status){
-        throw `error status: ${status}`;
-    }
-}
-console.log(ajax(objectTest));
-
