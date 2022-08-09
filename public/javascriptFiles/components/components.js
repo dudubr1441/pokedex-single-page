@@ -11,6 +11,9 @@ export class Component{
     AddAtributte(name,value){
         this.elementHTML.setAttribute(name,value);
     };
+    AddStyle(name,value){
+        this.elementHTML.style[name] = value;
+    };
     SetText(value){
         this.elementHTML.innerText = value.toString();
     }

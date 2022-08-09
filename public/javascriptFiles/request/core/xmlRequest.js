@@ -12,13 +12,13 @@ function objectConverToarams(object = {}) {
 }
 export function ajax(config) {
     config.method = config.method.toLowerCase();
-    xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     if(config.async === undefined){
        config.async = false;
     }
     xhr.open(config.method,config.url,config.async);
     xhr.onload = function(){
-        if(xhr.status = 200){
+        if(xhr.status == 200){
             config.success(xhr.responseText);
         }else{
             config.error(xhr.status);
