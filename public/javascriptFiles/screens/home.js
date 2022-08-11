@@ -1,6 +1,8 @@
 import {Component} from '/javascriptFiles/components/components.js';
 import {managerContent} from '/javascriptFiles/components/manager.js';
 import { screens } from '/javascriptFiles/screens/screens.js';
+import {config as pokemonFunction} from '/javascriptFiles/request/pokedexRequest.js';
+import {params} from '/javascriptFiles/request/core/params.js';
 const home = new Component('div');
 
 // title image
@@ -21,6 +23,7 @@ const pathImageStart = '/images files/start/pokemonButtonStart.png';
 const imageStart = Component.createImage(pathImageStart,80,80);
 imageStart.AddAtributte('id','startImage');
 imageStart.addEvent('click',function(){
+    var param = params();
     managerContent.nextPage(screens.pokedex)
 });
 

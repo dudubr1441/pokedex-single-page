@@ -1,9 +1,6 @@
 import {ajax} from '/javascriptFiles/request/core/xmlRequest.js';
 import { Component } from '/javascriptFiles/components/components.js';
 import {params} from '/javascriptFiles/request/core/params.js';
-var param = params();
-const pg = param.pg ? parseInt(param.pg) : parseInt('1');
-const CompomentsArrayPokemons = []
 function colorPokemon(type) {
     const colorpadron = '#000000';
     //: #eea200
@@ -48,22 +45,29 @@ function colorPokemon(type) {
             break;
     }
 }
+const param = params();
 export const config = {
     method:'get',
-    url:`/pokedex/${param.pg}`,
+    url:`/pokedex/${param.pg ? parseInt(param.pg) : 1}`,
     async:false,
     success(json){
+        console.log(`/pokedex/${param.pg}`);
         const pokemons = JSON.parse(json);
         pokemons.forEach((pokemon)=>{
-            let pokemonComponent = new Component();
-            console.log(colorPokemon(pokemon.type[0].toLowerCase()));
-            console.log(pokemon.type[0].toLowerCase());
+            const imagePokemon = Component.createImage(pokemon.mediumImage,110,110);
+            imagePokemon.AddClass('ImagePokemonPokedex');
+            const NamePokemon = new Component();
+            NamePokemon.AddClass('boxNamePokemonPokedex');
+            NamePokemon.SetText(pokemon.name);
+            const pokemonComponent = new Component();
             pokemonComponent.AddStyle('background-color',colorPokemon(pokemon.type[0].toLowerCase()));
             pokemonComponent.AddClass('pokemonPokedex');
+            pokemonComponent.appendChild(imagePokemon.Element);
+            pokemonComponent.appendChild(NamePokemon.Element)
             document.querySelector('#pokedexList').appendChild(pokemonComponent.Element);
         })
     },
     error(status){
-        alert('error in server: '+status)
+        alert('error in server: '+status);
     }
 }

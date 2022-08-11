@@ -1,3 +1,4 @@
+import {ajax} from '/javascriptFiles/request/core/xmlRequest.js';
 const divScreen = document.querySelector('#screenDiv')
 const functionBackOrigin = window.history.back;
 export class managerContent{
@@ -7,8 +8,11 @@ export class managerContent{
         this.history.push(page);
         divScreen.innerHTML = '';
         divScreen.appendChild(page.tag);
-        if (this.page==1) {
-            window.history.replaceState({page:++this.page},page.name,page.url)
+        // if (this.page==1) {
+        //     window.history.replaceState({page:++this.page},page.name,page.url)
+        // }
+        if (page.config) {
+            ajax(page.config)
         }
         window.history.pushState({page:++this.page},page.name,page.url)
     };
@@ -16,7 +20,6 @@ export class managerContent{
         console.log(managerContent.page);
         if (page !==1 || page!==0) {
             this.history.shift();
-            console.log('oi'); 
             divScreen.appendChild(this.history[this.history.length-1])
         }else{
             functionBackOrigin();
