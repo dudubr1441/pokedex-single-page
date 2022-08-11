@@ -1,6 +1,5 @@
-import { homeStart} from "/javascriptFiles/screens/home.js";
 import { pokedex } from "/javascriptFiles/screens/pokedex.js";
+import { homeStart} from "/javascriptFiles/screens/home.js";
 export const screens = {
-    home:homeStart,
-    pokedex:pokedex
+    pokedex:pokedex,
 }

@@ -53,6 +53,7 @@ export const config = {
     success(json){
         console.log(`/pokedex/${param.pg}`);
         const pokemons = JSON.parse(json);
+        document.querySelector('#pokedexList').innerHTML = "";
         pokemons.forEach((pokemon)=>{
             const imagePokemon = Component.createImage(pokemon.mediumImage,110,110);
             imagePokemon.AddClass('ImagePokemonPokedex');
@@ -66,6 +67,7 @@ export const config = {
             pokemonComponent.appendChild(NamePokemon.Element)
             document.querySelector('#pokedexList').appendChild(pokemonComponent.Element);
         })
+        console.log(pokemons);
     },
     error(status){
         alert('error in server: '+status);

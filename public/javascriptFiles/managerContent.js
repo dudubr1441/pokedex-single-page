@@ -1,9 +1,9 @@
 import {managerContent as manager} from '/javascriptFiles/components/manager.js';
-import {ajax} from '/javascriptFiles/request/core/xmlRequest.js';
 import {screens} from '/javascriptFiles/screens/screens.js';
+import {homeStart as home} from "/javascriptFiles/screens/home.js";
 window.history.back = manager.backPage; 
 var contador = 0;
-function verifyUrl() {
+export function verifyUrl() {
     function urlIdentifier(){
         const url = window.location.pathname.toString();
         const Adresses = url.split('/');
@@ -12,11 +12,10 @@ function verifyUrl() {
     }
     switch (urlIdentifier()[0]) {
         case '':
-            manager.nextPage(screens.home);   
+            manager.nextPage(home);   
             break;
         case 'home':
-            console.log(contador+1);
-            manager.nextPage(screens.home);
+            manager.nextPage(home);
             break;
         case 'pokedex':
             manager.nextPage(screens.pokedex);

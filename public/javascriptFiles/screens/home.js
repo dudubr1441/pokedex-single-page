@@ -1,7 +1,6 @@
 import {Component} from '/javascriptFiles/components/components.js';
 import {managerContent} from '/javascriptFiles/components/manager.js';
 import { screens } from '/javascriptFiles/screens/screens.js';
-import {config as pokemonFunction} from '/javascriptFiles/request/pokedexRequest.js';
 import {params} from '/javascriptFiles/request/core/params.js';
 const home = new Component('div');
 
@@ -24,7 +23,7 @@ const imageStart = Component.createImage(pathImageStart,80,80);
 imageStart.AddAtributte('id','startImage');
 imageStart.addEvent('click',function(){
     var param = params();
-    managerContent.nextPage(screens.pokedex)
+    managerContent.nextPage(screens.pokedex);
 });
 
 //append elements
@@ -35,4 +34,4 @@ home.appendChild(divTitlePokemon.Element);
 home.appendChild(groupStart.Element);
 home.AddAtributte('id','screen');
 home.AddClass('start');
-export const homeStart = {name:'home',tag:home.Element,url:'/home'}
+export const homeStart = {name:'home',tag:home.Element,url:'/home'};

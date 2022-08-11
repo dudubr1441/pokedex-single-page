@@ -1,6 +1,7 @@
 import {ajax} from '/javascriptFiles/request/core/xmlRequest.js';
+import {verifyUrl} from '/javascriptFiles/managerContent.js';
+import { homeStart as home} from "/javascriptFiles/screens/home.js";
 const divScreen = document.querySelector('#screenDiv')
-const functionBackOrigin = window.history.back;
 export class managerContent{
     static page = 1;
     static history = [];
@@ -18,11 +19,13 @@ export class managerContent{
     };
     static backPage(){
         console.log(managerContent.page);
-        if (page !==1 || page!==0) {
-            this.history.shift();
-            divScreen.appendChild(this.history[this.history.length-1])
+        if (this.page !==1 || this.page!==0) {
+            this.history.pop();
+            divScreen.innerHTML = "";
+            divScreen.appendChild(this.history[this.history.length-1].tag);
+            window.history.pushState({page:++this.page},this.history[this.history.length-1].name,this.history[this.history.length-1].url)
         }else{
-            functionBackOrigin();
+            this.nextPage(home.tag);
         };
     };
     static GetLastPage(){
