@@ -116,6 +116,7 @@
     display: flex;
     margin:0 auto;
     width: 900px;
+    height: 330px;
     flex-wrap: wrap;
 }
 .ImagePokemonPokedex{
@@ -158,6 +159,30 @@
     cursor: pointer;
     top: 10px;
     left: 5px;
+}
+.pageChangePokedex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 70px;
+    background-color: #D9D9D9;
+    font-family: pokemonFont;
+    color: #000000;
+    border-radius: 17px;
+    font-size: 20px;
+    cursor: pointer;
+}
+#pagesListPokedex :not(:first-child){
+    margin-left: 20px;
+}
+#pagesListPokedex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 790px;
+    height: 60px;
 }
 /*.pokemonPokedex:not(:last-child) {
     margin-left: 20px;

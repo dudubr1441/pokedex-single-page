@@ -3,7 +3,7 @@ import {verifyUrl} from '/javascriptFiles/managerContent.js';
 import { homeStart as home} from "/javascriptFiles/screens/home.js";
 const divScreen = document.querySelector('#screenDiv')
 export class managerContent{
-    static page = 1;
+    static page = 0;
     static history = [];
     static nextPage(page){
         this.history.push(page);
@@ -13,19 +13,22 @@ export class managerContent{
         //     window.history.replaceState({page:++this.page},page.name,page.url)
         // }
         if (page.config) {
-            ajax(page.config)
+            ajax(page.config);
         }
-        window.history.pushState({page:++this.page},page.name,page.url)
+        window.history.pushState({page:++this.page},page.name,page.url);
+        this.page++;
     };
     static backPage(){
-        console.log(managerContent.page);
-        if (this.page !==1 || this.page!==0) {
+        if (this.history[this.page+1]) {
             this.history.pop();
             divScreen.innerHTML = "";
+            console.log(this.history[this.history.length-1]);
             divScreen.appendChild(this.history[this.history.length-1].tag);
             window.history.pushState({page:++this.page},this.history[this.history.length-1].name,this.history[this.history.length-1].url)
         }else{
-            this.nextPage(home.tag);
+            divScreen.innerHTML = '';
+            divScreen.appendChild(home.tag);
+            window.history.pushState({page:++this.page},home.name,home.url);
         };
     };
     static GetLastPage(){
