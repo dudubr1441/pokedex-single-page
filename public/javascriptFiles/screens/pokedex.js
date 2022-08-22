@@ -1,14 +1,8 @@
 import {Component} from '/javascriptFiles/components/components.js';
 import {config as pokemonFunction} from '/javascriptFiles/request/pokedexRequest.js';
 import {params} from '/javascriptFiles/request/core/params.js';
-import {managerContent as manager} from '/javascriptFiles/components/manager.js';
+import {buttonBackPage} from '/javascriptFiles/components/buttonBackPage.js';
 
-//button BackPage
-const buttonBackPage = Component.createImage('/images files/backPage.svg',25,25);
-buttonBackPage.AddAtributte('id','backpage');
-buttonBackPage.addEvent('click',function(){
-    manager.backPage();
-});
 // title pokemon
 const TitlePokedex = Component.createText('pokedex');
 TitlePokedex.AddAtributte('id', 'titlePokedex');

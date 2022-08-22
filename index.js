@@ -2,13 +2,13 @@ const express = require('express');
 const { dirname } = require('path');
 const path = require('path');
 const app = express();
-const port = 3000;
+const port = 3001;
 const indexHTML = __dirname+'/public/html files/index.html';
 const pokedex = require('./private/pokedex/pokedex.js');
 const pokedexPages = require('./private/pokedex/pokedexPages.js');
+const pokemonFilter = require('./private/pokemon/pokemonFIlter.js');
 
 app.use(express.static('public'))
-
 app.get('/',function(req,res){
     res.sendFile(indexHTML)
 })
@@ -33,12 +33,21 @@ app.get('/pokedex/:pg',function (req,res) {
         res.sendStatus(500)
     }
 })
+app.get('/pokemon/:name',(req,res)=>{
+    const namePokemon = req.params.name;
+    const Result = pokemonFilter(namePokemon);    
+    if (Result) {
+        res.json(Result);
+    }else{
+        res.send('not found, please send correct name.');
+    }
+    
+})
 app.get('/allPokemons',function(req,res){
     res.json(pokedex);
 })
 process.on('SIGINT', function() {
     console.log( "\nGracefully shutting down from SIGINT (Ctrl-C)" );
-    // some other closing procedures go here
     process.exit(0);
   });
 app.listen(port,() =>{
