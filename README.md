@@ -2,6 +2,11 @@
 only javascript without frameworks
 
 # commands in terminal
-```javascript
+```js
 npm i
+```
+
+# start server
+```
+node index.js
 ```
